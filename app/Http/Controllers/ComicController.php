@@ -17,7 +17,6 @@ class ComicController extends Controller
 				'hash' => $hash
 			];
 			$url = "https://gateway.marvel.com:443/v1/public/characters?name=".$characters.'&'.http_build_query($params);
-			dd($url);
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -25,6 +24,7 @@ class ComicController extends Controller
 			$result=curl_exec($ch);
 			curl_close($ch);
 			$result = json_decode($result, true);
+			dd($result);
 			if (isset($result['data']['results'])) {
 				$data = $result['data']['results'][0];
 				$arrayComics = $result['data']['results'][0]['comics']['items'];
