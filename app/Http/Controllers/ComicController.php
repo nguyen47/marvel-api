@@ -12,6 +12,7 @@ class ComicController extends Controller
 			$ts = time();
 			$hash = md5($ts."20e47789c610164804b5a941825f8b065a0a90f2"."cdc0925698b9fc7e092dfa8e0fe9cc96");
 			$params = [
+				'apikey' => "cdc0925698b9fc7e092dfa8e0fe9cc96",
 				'ts' => $ts,
 				'hash' => $hash
 			];
