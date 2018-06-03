@@ -24,7 +24,7 @@ class ComicController extends Controller
 			$result=curl_exec($ch);
 			curl_close($ch);
 			$result = json_decode($result, true);
-			if (!empty($result['data']['results'])) {
+			if (isset($result['data']['results'])) {
 				$data = $result['data']['results'][0];
 				$arrayComics = $result['data']['results'][0]['comics']['items'];
 
